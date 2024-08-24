@@ -1,4 +1,36 @@
+html, body {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+}
 body {
     background-color: #F4F4F9;
     font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: row;
+}
+.sidebar {
+    background-color: #586F7C;
+    width: 200px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+}
+#mainContent {
+    flex: 1; /* Sets mainContent to take all remaining space in the body to the right of the sidebar*/
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    box-sizing: border-box; /* Ensures mainContent element total size starts at border and works in, so any padding / margins etc. shrink the content size rather than expanding the element size outside the border*/
+}
+.footerBar {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin-top: auto;
+    width: 100%;
+    box-sizing: border-box;
 }
