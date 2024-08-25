@@ -24,6 +24,9 @@ body {
 .sidebar li {
     list-style: none;
 }
+.staffNav {
+    cursor: pointer;
+}
 #mainContent {
     flex: 1; /* Sets mainContent to take all remaining space in the body to the right of the sidebar*/
     display: flex;
