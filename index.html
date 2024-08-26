@@ -21,6 +21,19 @@
                     </li>
                     <li>
                         <p class="staffNav">Staff</p>
+                        <!--staffNavSubMenu start-->
+                        <ul class="staffNavSubMenu">
+                            <li>
+                                <p class="staffAvailability">Availability</p>
+                            </li>
+                            <li>
+                                <p class="staffProjects">Projects</p>
+                            </li>
+                            <li>
+                                <p class="staffSales">Sales</p>
+                            </li>
+                        </ul>
+                            <!--staffNavSubMenu end-->
                     </li>
                     <li>
                         <p class="customersNav">Customers</p>
@@ -44,12 +57,12 @@
                 <!--topbar end-->
             <!--cards start-->
             <section class="cards">
-                <h2>Staff</h2>
-                <h2>Customers</h2>
-                <h2>Projects</h2>
-                <h2>Sales</h2>
-                <h2>Products</h2>
-                <h2>Services</h2>
+                <h2 class="staffCard">Staff</h2>
+                <h2 class="customersCard">Customers</h2>
+                <h2 class="projectsCard">Projects</h2>
+                <h2 class="salesCard">Sales</h2>
+                <h2 class="productsCard">Products</h2>
+                <h2 class="servicesCard">Services</h2>
             </section>
                 <!--cards end-->
             <section class="footerBar">
@@ -59,7 +72,14 @@
             <!--mainContent end--> 
         <!--script start-->
         <script defer>
-
+            document.querySelector(".staffNav").onclick = function() {
+                var staffNavSubMenu = document.querySelector(".staffNavSubMenu");
+                if (staffNavSubMenu.style.display === "none" || staffNavSubMenu.style.display === "") {
+                    staffNavSubMenu.style.display = "block";
+                } else {
+                    staffNavSubMenu.style.display = "none";
+                }
+            }
         </script>
             <!--script end-->
     </body>

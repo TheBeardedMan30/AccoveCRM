@@ -27,7 +27,36 @@ body {
 .staffNav {
     cursor: pointer;
 }
+.staffNavSubMenu {
+    display: none;
+    margin-left: 10px;
+    font-size: smaller;
+}
 .customersNav {
+    cursor: pointer;
+}
+.productsNav {
+    cursor: pointer;
+}
+.servicesNav {
+    cursor: pointer;
+}
+.staffCard {
+    cursor: pointer;
+}
+.customersCard {
+    cursor: pointer;
+}
+.projectsCard {
+    cursor: pointer;
+}
+.salesCard {
+    cursor: pointer;
+}
+.productsCard {
+    cursor: pointer;
+}
+.servicesCard {
     cursor: pointer;
 }
 #mainContent {
