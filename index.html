@@ -24,6 +24,12 @@
                         <!--staffNavSubMenu start-->
                         <ul class="staffNavSubMenu">
                             <li>
+                                <p class="allStaff">All Staff</p>
+                            </li>
+                            <li>
+                                <p class="teams">Teams</p>
+                            </li>
+                            <li>
                                 <p class="staffAvailability">Availability</p>
                             </li>
                             <li>
@@ -31,6 +37,9 @@
                             </li>
                             <li>
                                 <p class="staffSales">Sales</p>
+                            </li>
+                            <li>
+                                <p class="transactions">Transactions</p>
                             </li>
                         </ul>
                             <!--staffNavSubMenu end-->
@@ -70,8 +79,32 @@
             </section>
         </section>
             <!--mainContent end--> 
+
+        <!--staffCardPopup start-->
+        <div id="staffCardPopup">
+            <h3>Staff</h3>
+            <!--staffCardNav start-->
+            <div id="staffCardNavGrid">
+                <img id="allStaffImg" src="" alt="">
+                <p>All Staff</p>
+                <img id="teamsImg" src="" alt="">
+                <p>Teams</p>
+                <img id="availabilityImg" src="" alt="">
+                <p>Availability</p>
+                <img id="projectsImg" src="" alt="">
+                <p>Projects</p>
+                <img id="salesImg" src="" alt="">
+                <p>Sales</p>
+                <img id="transactionsImg" src="" alt="">
+                <p>Transactions</p>
+            </div>
+            <h4 id="staffCardPopupClose">Close</h4>
+        </div>
+            <!--staffCardPopup end-->
+
         <!--script start-->
         <script defer>
+            /* Expands and collapses the Staff submenu */
             document.querySelector(".staffNav").onclick = function() {
                 var staffNavSubMenu = document.querySelector(".staffNavSubMenu");
                 if (staffNavSubMenu.style.display === "none" || staffNavSubMenu.style.display === "") {
@@ -80,7 +113,26 @@
                     staffNavSubMenu.style.display = "none";
                 }
             }
+
+            /* Displays and hides the staff card popup if the card is clicked */
+            document.querySelector(".staffCard").onclick = function() {
+                var staffCardPopup = document.getElementById("staffCardPopup");
+                if (staffCardPopup.style.display === "none" || staffCardPopup.style.display === "") {
+                    staffCardPopup.style.display = "flex";
+                } else {
+                    staffCardPopup.style.display = "none";
+                }
+            }
+
+            /* Hides the staff card popup if 'Close' is clicked */
+            document.querySelector("#staffCardPopupClose").onclick = function() {
+                var staffCardPopup = document.getElementById("staffCardPopup");
+                if (staffCardPopup.style.display === "flex") {
+                    staffCardPopup.style.display = "none";
+                }
+            }
         </script>
             <!--script end-->
+
     </body>
 </html>
