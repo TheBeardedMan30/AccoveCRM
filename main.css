@@ -105,9 +105,18 @@ body {
 #staffCardNavGrid {
     display: grid;
     font-size: 1.25em;
+    grid-template-columns: auto auto auto auto;
+    align-content: space-evenly;
 }
 #staffCardPopup img {
-    width: 70px;
+    width: 90px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    margin-left: 40px;
+}
+#staffCardPopup p {
+    margin-right: 80px;
 }
 #staffCardPopupClose {
     display: flex;
@@ -129,6 +138,9 @@ body {
     margin-top: auto;
     width: 100%;
     box-sizing: border-box;
+}
+.footerBar a {
+    font-size: smaller;
 }
 .footerBar a:link {
     color: white;
