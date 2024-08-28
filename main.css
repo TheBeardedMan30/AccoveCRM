@@ -146,31 +146,23 @@ body {
 #staffCardNavGrid a:link {
     color: black;
     text-decoration: none;
-    background-color: white;
-    border-radius: 25px;
     padding: 10px;
 }
 #staffCardNavGrid a:visited {
     color: black;
     text-decoration: none;
-    background-color: white;
-    border-radius: 25px;
     padding: 10px;
 }
 #staffCardNavGrid a:hover {
     color: black;
     cursor: pointer;
     text-decoration: underline;
-    background-color: white;
-    border-radius: 25px;
     padding: 10px;
 }
 #staffCardNavGrid a:active {
     color: black;
     cursor: pointer;
     text-decoration: underline;
-    background-color: white;
-    border-radius: 25px;
     padding: 10px;
 }
 #staffCardPopupClose {
