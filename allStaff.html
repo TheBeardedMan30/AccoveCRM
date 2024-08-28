@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Accove CRM</title>
+        <title>All Staff - Accove CRM</title>
         <meta name="description" content="">
         <meta name="keywords" content="">
         <meta name="author" content="Chris Allen">
@@ -64,45 +64,12 @@
                 <img src="accoveLogo.png" alt="ACCOVE logo">
             </section>
                 <!--topbar end-->
-            <!--cards start-->
-            <section class="cards">
-                <h2 class="staffCard"><a>Staff</a></h2>
-                <h2 class="customersCard">Customers</h2>
-                <h2 class="projectsCard">Projects</h2>
-                <h2 class="salesCard">Sales</h2>
-                <h2 class="productsCard">Products</h2>
-                <h2 class="servicesCard">Services</h2>
-            </section>
-                <!--cards end-->
             <section class="footerBar">
                 <p>&copy Copyright ACCOVE 2024</p>
                 <a href="https://www.flaticon.com/free-icons/group" title="group icons">Group icons created by Freepik - Flaticon</a>
             </section>
         </section>
             <!--mainContent end--> 
-
-        <!--staffCardPopup start-->
-        <div id="staffCardPopup">
-            <h3>Staff</h3>
-            <!--staffCardNav start-->
-            <div id="staffCardNavGrid">
-                <img id="allStaffImg" src="allStaff.png" alt="">
-                <p>All Staff</p>
-                <img id="teamsImg" src="teams.png" alt="">
-                <p>Teams</p>
-                <img id="availabilityImg" src="availability.png" alt="">
-                <p>Availability</p>
-                <img id="projectsImg" src="projects.png" alt="">
-                <p>Projects</p>
-                <img id="salesImg" src="sales.png" alt="">
-                <p>Sales</p>
-                <img id="transactionsImg" src="transactions.png" alt="">
-                <p>Transactions</p>
-            </div>
-            <h4 id="staffCardPopupClose">Close</h4>
-        </div>
-            <!--staffCardPopup end-->
-
         <!--script start-->
         <script defer>
             /* Expands and collapses the Staff submenu */
@@ -112,24 +79,6 @@
                     staffNavSubMenu.style.display = "block";
                 } else {
                     staffNavSubMenu.style.display = "none";
-                }
-            }
-
-            /* Displays and hides the staff card popup if the card is clicked */
-            document.querySelector(".staffCard").onclick = function() {
-                var staffCardPopup = document.getElementById("staffCardPopup");
-                if (staffCardPopup.style.display === "none" || staffCardPopup.style.display === "") {
-                    staffCardPopup.style.display = "flex";
-                } else {
-                    staffCardPopup.style.display = "none";
-                }
-            }
-
-            /* Hides the staff card popup if 'Close' is clicked */
-            document.querySelector("#staffCardPopupClose").onclick = function() {
-                var staffCardPopup = document.getElementById("staffCardPopup");
-                if (staffCardPopup.style.display === "flex") {
-                    staffCardPopup.style.display = "none";
                 }
             }
         </script>

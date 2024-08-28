@@ -27,6 +27,9 @@ body {
 .staffNav {
     cursor: pointer;
 }
+.staffNav a:hover {
+    text-decoration: underline;
+}
 .staffNavSubMenu {
     display: none;
     font-size: smaller;
@@ -40,8 +43,13 @@ body {
 .servicesNav {
     cursor: pointer;
 }
+
+/*-----------Dashboard Start---------*/
 .staffCard {
     cursor: pointer;
+}
+.staffCard a:hover {
+    text-decoration: underline;
 }
 .customersCard {
     cursor: pointer;
@@ -117,6 +125,7 @@ body {
 }
 #staffCardPopup p {
     margin-right: 80px;
+    padding-top: 40px;
 }
 #staffCardPopupClose {
     display: flex;
@@ -129,6 +138,8 @@ body {
     cursor: pointer;
     font-size: 1.25em;
 }
+/*----------Dashboard End------------*/
+
 .footerBar {
     background-color: black;
     border-radius: 25px;
