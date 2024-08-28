@@ -85,22 +85,40 @@ body {
 }
 #staffCardPopup {
     display: none;
+    flex-direction: column;
     position: fixed;
-    top: 50%;
-    left: 50%;
+    top: 47%;
+    left: 57%;
     transform: translate(-50%, -50%);
-    width: 400px;
-    height: 300px;
-    background-color: #04724D;
+    width: 800px;
+    height: 600px;
+    background-color: #08D993;
     border-radius: 25px;
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.4);
     z-index: 1000;
+    align-items: center;
+    justify-content: center;
 }
-#staffcardNavGrid {
+#staffCardPopup h3 {
+    font-size: 2em;
+}
+#staffCardNavGrid {
     display: grid;
+    font-size: 1.25em;
+}
+#staffCardPopup img {
+    width: 70px;
 }
 #staffCardPopupClose {
+    display: flex;
+    background-color: #F4F4F9;
+    border-radius: 25px;
+    height: 30px;
+    width: 100px;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
+    font-size: 1.25em;
 }
 .footerBar {
     background-color: black;
@@ -111,4 +129,20 @@ body {
     margin-top: auto;
     width: 100%;
     box-sizing: border-box;
+}
+.footerBar a:link {
+    color: white;
+    text-decoration: none;
+}
+.footerBar a:visited {
+    color: white;
+    text-decoration: none;
+}
+.footerBar a:hover {
+    color: white;
+    text-decoration: none;
+}
+.footerBar a:active {
+    color: white;
+    text-decoration: none;
 }
