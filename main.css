@@ -1,0 +1,101 @@
+html {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+body {
+    background-color: whitesmoke;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0;
+    margin: 0;
+}
+header {
+    background: white;
+    height: 8%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+}
+.headerLogo {
+    height: 80%;
+}
+header input {
+    width: 350px;
+    height: 30px;
+    margin-left: 5px;
+    padding-left: 10px;
+    border: 1px solid black;
+    border-radius: 25px;
+}
+.searchIcon {
+    width: 30px;
+    margin-left: 100px;
+}
+.supportIcon {
+    width: 30px;
+    margin-left: auto;
+    margin-right: 15px;
+}
+.notificationsIcon {
+    width: 30px;
+    margin-right: 15px;
+}
+.appsIcon {
+    width: 30px;
+    margin-right: 15px;
+}
+.profileIcon {
+    width: 30px;
+    margin-right: 30px;
+}
+.navigation {
+    background-color: #EC0B43;
+    color: white;
+    width: 270px;
+    height: 87%;
+}
+.navigation ul {
+    padding-top: 40px;
+}
+.navigation li {
+    list-style-type: none;
+    padding-bottom: 10px;
+}
+.navigation a {
+    color: white;
+}
+.navigation a:link {
+    text-decoration: none;
+}
+.navigation a:visited {
+    color: white;
+}
+.navigation a:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+.navigation a:active {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+footer {
+    background-color: white;
+    height: 5%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+footer p {
+    margin-right: 30px;
+    margin-left: 30px;
+}
+footer a {
+    text-decoration: none;
+    color: black;
+}
