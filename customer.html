@@ -54,10 +54,10 @@
                 <!--navigation End-->
             <!--mainContent Start-->
             <section class="mainContent">
-                <h2>Users</h2>
-                <section id="activeUsers">
-                    <h3>Active Users</h3>
-                    <table id="activeUsersTable">
+                <h2>Customer Management</h2>
+                <section id="activeCustomers">
+                    <h3>Active Customers</h3>
+                    <table id="activeCustomersTable">
                         <tr>
                             <th></th>
                             <th>User</th>
@@ -86,8 +86,8 @@
                             <td>0404 987 321</td>
                             <td>Sandoz</td>
                         </tr>
-                        <tr>
-                            <td colspan="5" class="addUser">+ Add user</td>
+                        <tr id="addCustomerRow" onclick="addInputRow()">
+                            <td colspan="5" class="addCustomer">+ Add customer</td>
                         </tr>
                     </table>
                 </section>
@@ -98,5 +98,12 @@
             <p>&copy; Copyright Accove 2024</p>
             <p>Uicons by <a href="https://www.flaticon.com/uicons">Flaticon</a></p>
         </footer>
+        <!--JavaScript Start-->
+        <script>
+            function addInputRow(){
+                console.log("Row clicked");
+            }
+        </script>
+            <!--JavaScript End-->
     </body>
 </html>
