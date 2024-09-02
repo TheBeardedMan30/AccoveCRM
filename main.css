@@ -93,8 +93,33 @@ header input {
     display: flex;
     flex-direction: column;
 }
+.mainContent h2 {
+    vertical-align: middle;
+    line-height: 70px;
+    height: 70px;
+    width: 400px;
+    font-size: 2.25em;
+    margin-left: 60px;
+    padding-left: 50px;
+    margin-top: 30px;
+    color: white;
+    background-color: #58355E;
+    border-radius: 25px;
+}
 #activeUsers {
+    margin-left: 60px;
+}
+#activeUsers h3 {
     border: 1px solid black;
+    width: 100%;
+}
+#activeUsers table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 10px 40px 10px 40px;
+}
+#activeUsers table td:first-child, table th:first-child {
+    padding: 10px 20px 10px 20px;
 }
 footer {
     background-color: white;
