@@ -123,12 +123,42 @@ header input {
 #activeCustomers table, th, td {
     border: 1px solid rgb(210, 210, 210);
     border-collapse: collapse;
-    padding: 10px 60px 10px 60px;
     background-color: rgba(214, 255, 183, 0.15);
+}
+#activeCustomers td {
+    padding-left: 10px;
+}
+.user {
+    width: 200px;
+}
+.userInput {
+    width: 90%;
+}
+.email {
+    width: 300px;
+}
+.emailInput {
+    width: 95%;
+}
+.phone {
+    width: 200px;
+}
+.phoneInput {
+    width: 90%;
+}
+.company {
+    width: 200px;
+}
+.companyInput {
+    width: 90%;
+}
+#activeCustomers th {
+    padding: 10px 0px 10px 0px;
 }
 #activeCustomers table td:first-child, table th:first-child {
     padding: 10px 10px 10px 10px;
 }
+
 .addCustomer {
     font-style: italic;
 }
