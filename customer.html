@@ -102,6 +102,25 @@
         <script>
             function addInputRow(){
                 console.log("Row clicked");
+
+                var table = document.getElementById("activeCustomersTable");
+                console.log("Table variable created");
+                
+                var rowCount = table.rows.length;
+                var row = table.insertRow(rowCount - 1);
+                console.log("Row variable created");
+
+                var checkBox = row.insertCell(0);
+                var user = row.insertCell(1);
+                var email = row.insertCell(2);
+                var phone = row.insertCell(3);
+                var company = row.insertCell(4);
+
+                checkBox.innerHTML = '<input type="checkbox">';
+                user.innerHTML = '<input type="text">';
+                email.innerHTML = '<input type="text">';
+                phone.innerHTML = '<input type="text">';
+                company.innerHTML = '<input type="text">';
             }
         </script>
             <!--JavaScript End-->
