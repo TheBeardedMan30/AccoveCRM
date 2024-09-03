@@ -101,14 +101,9 @@
         <!--JavaScript Start-->
         <script>
             function addInputRow(){
-                console.log("Row clicked");
-
                 var table = document.getElementById("activeCustomersTable");
-                console.log("Table variable created");
-                
                 var rowCount = table.rows.length;
                 var row = table.insertRow(rowCount - 1);
-                console.log("Row variable created");
 
                 var checkBox = row.insertCell(0);
                 var user = row.insertCell(1);
@@ -122,12 +117,24 @@
                 phone.innerHTML = '<input type="text" class="phoneInput" placeholder="Phone . . .">';
                 company.innerHTML = '<input type="text" class="companyInput" placeholder="Company . . .">';
 
-                /* Selects all elements in row that match 'text' type then iterates over each */
+                // Selects all elements in row that match 'text' type then iterates over each
                 row.querySelectorAll('input[type="text"]').forEach(function(input) {
-                    /* function() used to define what will happen when 'blur' event triggered */
                     input.addEventListener('blur', function() {
-                        var cell = input.parentElement;
-                        cell.innerHTML = input.value;
+                        // Check if all input fields have been filled with something
+                        var allInputFilled = true;
+                        row.querySelectorAll('input[type="text"]').forEach(function(input) {
+                            if (input.value.trim() === '') {
+                                allInputFilled = false;
+                            }
+                        });
+
+                        // If all input fields have been filled with something, convert the content into cells
+                        if (allInputFilled) {
+                            row.querySelectorAll('input[type="text"]').forEach(function(input) {
+                                var cell = input.parentElement;
+                                cell.innerHTML = input.value;
+                            });
+                        }
                     });
                 });
             }
