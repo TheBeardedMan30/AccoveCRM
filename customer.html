@@ -151,10 +151,14 @@
                     const regex = /^[a-zA-Z]+(?: [a-zA-Z]+)?$/;
                     console.log("Regex has been created");
 
+                    // Performs test of userInputValue gainst regex
                     if (regex.test(userInputValue)) {
                         console.log("Test passed");
                     } else {
                         console.log("Test failed");
+                        // Displays alert window
+                        alert("Please enter only letters when entering a name.");
+                        userInputValue.focus();
                     }
                 };
             }

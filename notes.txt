@@ -20,3 +20,21 @@ function validateInput() {
       alert("Input contains only letters.");
     }
 }
+
+
+
+function validateUserInput() {
+    // Access the input element directly
+    const userInput = document.getElementsByClassName("userInput")[0];
+
+    // Check if the input value matches the regex
+    const regex = /^[a-zA-Z]+(?: [a-zA-Z]+)?$/;
+    if (regex.test(userInput.value)) {
+        console.log("Test passed");
+    } else {
+        console.log("Test failed");
+        alert("Please enter only letters when entering a name.");
+        // Focus on the input element
+        userInput.focus();
+    }
+}
