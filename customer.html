@@ -55,6 +55,7 @@
             <!--mainContent Start-->
             <section class="mainContent">
                 <h2>Customer Management</h2>
+                <!--activeCustomers Start-->
                 <section id="activeCustomers">
                     <h3>Active Customers</h3>
                     <table id="activeCustomersTable">
@@ -91,6 +92,45 @@
                         </tr>
                     </table>
                 </section>
+                    <!--activeCustomers End-->
+                <!--inactive Customers Start-->
+                <section id="inactiveCustomers">
+                    <h3>Inactive Customers</h3>
+                    <table id="inactiveCustomersTable">
+                        <tr>
+                            <th class="inactiveCheckBox"></th>
+                            <th class="inactiveUser">User</th>
+                            <th class="inactiveEmail">Email</th>
+                            <th class="inactivePhone">Phone</th>
+                            <th class="inactiveCompany">Company</th>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" name="inactiveUser1"></td>
+                            <td>Michael Jackson</td>
+                            <td>michale.jackson@emailme.com</td>
+                            <td>0429 842 093</td>
+                            <td>Apple</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" name="inactiveUser2"></td>
+                            <td>Koby Bryant</td>
+                            <td>blackmamba@emailme.com</td>
+                            <td>0498 882 641</td>
+                            <td>LA Lakers</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td>James Potter</td>
+                            <td>j.potter@hogwarts.co.uk</td>
+                            <td>0426 773 925</td>
+                            <td>Hogwarts</td>
+                        </tr>
+                        <tr id="addInactiveCustomerRow" onclick="addInactiveInputRow()">
+                            <td colspan="5" class="addInactiveCustomer">+ Add customer</td>
+                        </tr>
+                    </table>
+                </section>
+                    <!--inactive Customers End-->
             </section>
                 <!--mainContent End-->
         </section>
@@ -165,7 +205,7 @@
                     const regex = /^[0-9]+$/;
 
                     if (!regex.test(phoneInputValue)) {
-                        alert("Please enter only numbers when entering a phone number");
+                        alert("Please enter only numbers when entering a phone number.");
                         phoneInputValue.focus();
                     }
                 }
