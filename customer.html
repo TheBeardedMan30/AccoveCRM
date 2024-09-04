@@ -130,7 +130,8 @@
 
                         // If all input fields have been filled with something, convert the content into cells
                         if (allInputFilled) {
-                            validateInput();
+                            // Calls the validateUserInput function
+                            validateUserInput();
                             row.querySelectorAll('input[type="text"]').forEach(function(input) {
                                 var cell = input.parentElement;
                                 cell.innerHTML = input.value;
@@ -139,16 +140,35 @@
                     });
                 });
 
-                function validateInput() {
-                    console.log("validateInput has run.");
-                }
+                function validateUserInput() {
+                    console.log("validateUserInput has run");
+                    const userInput = document.getElementsByClassName("userInput")[0];
+                    console.log(userInput);
+                    userInputValue = userInput.value;
+                    console.log(userInputValue);
+                };
             }
         </script>
             <!--JavaScript End-->
     </body>
 </html>
 
-<!--
+
+
+<!--function validateLetters(inputField) {
+  const regex = /^[a-zA-Z]+$/;
+  const inputValue = inputField.value;
+
+  if (!regex.test(inputValue)) {
+    // Input contains non-letter characters
+    alert("Please enter only letters.");
+    inputField.focus();
+    return false;
+  }
+
+   Input contains only letters
+  return true;
+}
 
 function validateInput() {
     const inputField = document.getElementById("myInputField");
@@ -156,6 +176,4 @@ function validateInput() {
       // Input is valid
       alert("Input contains only letters.");
     }
-  }
-
--->
+}-->
