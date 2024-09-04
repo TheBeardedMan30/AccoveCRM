@@ -119,7 +119,7 @@
                             <td>LA Lakers</td>
                         </tr>
                         <tr>
-                            <td><input type="checkbox"></td>
+                            <td><input type="checkbox" name="inactiveUser3"></td>
                             <td>James Potter</td>
                             <td>j.potter@hogwarts.co.uk</td>
                             <td>0426 773 925</td>
@@ -196,7 +196,7 @@
                         alert("Please enter only letters when entering a name.");
                         userInputValue.focus();
                     }
-                };
+                }
 
                 function validatePhoneInput() {
                     const phoneInput = document.getElementsByClassName("phoneInput")[0];
@@ -207,6 +207,68 @@
                     if (!regex.test(phoneInputValue)) {
                         alert("Please enter only numbers when entering a phone number.");
                         phoneInputValue.focus();
+                    }
+                }
+            }
+
+            function addInactiveInputRow() {
+                var table = document.getElementById("inactiveCustomersTable");
+                var rowCount = table.rows.length;
+                var row = table.insertRow(rowCount - 1);
+
+                var checkBox = row.insertCell(0);
+                var user = row.insertCell(1);
+                var email = row.insertCell(2);
+                var phone = row.insertCell(3);
+                var company = row.insertCell(4);
+
+                checkBox.innerHTML = '<input type="checkbox">';
+                user.innerHTML = '<input type="text" class="inactiveUserInput" placeholder="Name . . .">';
+                email.innerHTML = '<input type="text" class="inactiveEmailInput" placeholder="Email . . .">';
+                phone.innerHTML = '<input type="text" class="inactivePhoneInput" placeholder="Phone . . .">';
+                company.innerHTML = '<input type="text" class="inactiveCompanyInput">';
+
+                row.querySelectorAll('input[type="text"]').forEach(function(input) {
+                    input.addEventListener('blur', function() {
+                        var allInactiveInputFilled = true;
+                        row.querySelectorAll('input[type="text"]').forEach(function(input) {
+                            if (input.value.trim() === '') {
+                                allInactiveInputFilled = false;
+                            }
+                        });
+
+                        if (allInactiveInputFilled) {
+                            validateInactiveUserInput();
+                            validateInactivePhoneInput();
+                            row.querySelectorAll('input[type="text"]').forEach(function(input) {
+                                var cell = input.parentElement;
+                                cell.innerHTML = input.value;
+                            });
+                        }
+                    });
+                });
+
+                function validateInactiveUserInput() {
+                    const inactiveUserInput = document.getElementsByClassName("inactiveUserInput")[0];
+                    inactiveUserInputValue = inactiveUserInput.value;
+
+                    const regex = /^[a-zA-Z]+(?: [a-zA-Z]+)?$/;
+
+                    if (!regex.test(inactiveUserInputValue)) {
+                        alert("Please enter only letters when entering a name.");
+                        inactiveUserInputValue.focus();
+                    }
+                }
+
+                function validateInactivePhoneInput() {
+                    const inactivePhoneInput = document.getElementsByClassName("inactivePhoneInput")[0];
+                    inactivePhoneInputValue = inactivePhoneInput.value;
+
+                    const regex = /^[0-9]+$/;
+
+                    if (!regex.test(inactivePhoneInputValue)) {
+                        alert("Please enter only numbers when entering a phone number.");
+                        inactivePhoneInputValue.focus();
                     }
                 }
             }
