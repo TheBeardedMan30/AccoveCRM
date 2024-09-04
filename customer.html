@@ -141,39 +141,24 @@
                 });
 
                 function validateUserInput() {
-                    console.log("validateUserInput has run");
+                    // Creates variable to store userInput input field
                     const userInput = document.getElementsByClassName("userInput")[0];
-                    console.log(userInput);
+                    // Creates variable to store value of userInput
                     userInputValue = userInput.value;
                     console.log(userInputValue);
+
+                    // Creates the expression being used to compare the input against
+                    const regex = /^[a-zA-Z]+(?: [a-zA-Z]+)?$/;
+                    console.log("Regex has been created");
+
+                    if (regex.test(userInputValue)) {
+                        console.log("Test passed");
+                    } else {
+                        console.log("Test failed");
+                    }
                 };
             }
         </script>
             <!--JavaScript End-->
     </body>
 </html>
-
-
-
-<!--function validateLetters(inputField) {
-  const regex = /^[a-zA-Z]+$/;
-  const inputValue = inputField.value;
-
-  if (!regex.test(inputValue)) {
-    // Input contains non-letter characters
-    alert("Please enter only letters.");
-    inputField.focus();
-    return false;
-  }
-
-   Input contains only letters
-  return true;
-}
-
-function validateInput() {
-    const inputField = document.getElementById("myInputField");
-    if (validateLetters(inputField)) {
-      // Input is valid
-      alert("Input contains only letters.");
-    }
-}-->

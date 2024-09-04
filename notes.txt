@@ -1,0 +1,22 @@
+function validateLetters(inputField) {
+  const regex = /^[a-zA-Z](?: [a-zA-Z]){0,2}$/;
+  const inputValue = inputField.value;
+
+  if (!regex.test(inputValue)) {
+    // Input contains non-letter characters
+    alert("Please enter only letters.");
+    inputField.focus();
+    return false;
+  }
+
+   Input contains only letters
+  return true;
+}
+
+function validateInput() {
+    const inputField = document.getElementById("myInputField");
+    if (validateLetters(inputField)) {
+      // Input is valid
+      alert("Input contains only letters.");
+    }
+}
