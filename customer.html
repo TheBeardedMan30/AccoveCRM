@@ -132,6 +132,7 @@
                         if (allInputFilled) {
                             // Calls the validateUserInput function
                             validateUserInput();
+                            validatePhoneInput();
                             row.querySelectorAll('input[type="text"]').forEach(function(input) {
                                 var cell = input.parentElement;
                                 cell.innerHTML = input.value;
@@ -145,22 +146,29 @@
                     const userInput = document.getElementsByClassName("userInput")[0];
                     // Creates variable to store value of userInput
                     userInputValue = userInput.value;
-                    console.log(userInputValue);
 
                     // Creates the expression being used to compare the input against
                     const regex = /^[a-zA-Z]+(?: [a-zA-Z]+)?$/;
-                    console.log("Regex has been created");
 
-                    // Performs test of userInputValue gainst regex
-                    if (regex.test(userInputValue)) {
-                        console.log("Test passed");
-                    } else {
-                        console.log("Test failed");
+                    // Performs test of userInputValue against regex
+                    if (!regex.test(userInputValue)) {
                         // Displays alert window
                         alert("Please enter only letters when entering a name.");
                         userInputValue.focus();
                     }
                 };
+
+                function validatePhoneInput() {
+                    const phoneInput = document.getElementsByClassName("phoneInput")[0];
+                    phoneInputValue = phoneInput.value;
+
+                    const regex = /^[0-9]+$/;
+
+                    if (!regex.test(phoneInputValue)) {
+                        alert("Please enter only numbers when entering a phone number");
+                        phoneInputValue.focus();
+                    }
+                }
             }
         </script>
             <!--JavaScript End-->
