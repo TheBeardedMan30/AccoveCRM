@@ -107,7 +107,7 @@ header input {
     border-bottom-right-radius: 25px;
     border-top-right-radius: 25px;
 }
-#activeCustomers {
+#activeCustomers, #inactiveCustomers {
     margin-left: 60px;
 }
 #activeCustomers h3 {
@@ -120,51 +120,70 @@ header input {
     line-height: 40px;
     height: 40px;
 }
-#activeCustomers table, th, td {
+#inactiveCustomers h3 {
+    box-sizing: border-box;
+    background-color: #FFF689;
+    width: 100%;
+    padding-left: 50px;
+    margin-bottom: 0px;
+    vertical-align: middle;
+    line-height: 40px;
+    height: 40px;
+}
+#activeCustomers table, #activeCustomers th, #activeCustomers td {
     border: 1px solid rgb(210, 210, 210);
     border-collapse: collapse;
     background-color: rgba(214, 255, 183, 0.15);
 }
-#activeCustomers td {
+#inactiveCustomers table, #inactiveCustomers th, #inactiveCustomers td {
+    border: 1px solid rgb(210, 210, 210);
+    border-collapse: collapse;
+    background-color: rgba(255, 246, 137, 0.15);
+}
+#activeCustomers td, #inactiveCustomers td {
     padding-left: 10px;
 }
-.user {
+.user, .inactiveUser {
     width: 200px;
 }
 .userInput {
     width: 90%;
 }
-.email {
+.email, .inactiveEmail {
     width: 300px;
 }
 .emailInput {
     width: 95%;
 }
-.phone {
+.phone, .inactivePhone {
     width: 200px;
 }
 .phoneInput {
     width: 90%;
 }
-.company {
+.company, .inactiveCompany {
     width: 200px;
 }
 .companyInput {
     width: 90%;
 }
-#activeCustomers th {
+#activeCustomers th, #inactiveCustomers th {
     padding: 10px 0px 10px 0px;
 }
-#activeCustomers table td:first-child, table th:first-child {
+#activeCustomers table td:first-child, #activeCustomers table th:first-child, #inactiveCustomers table td:first-child, #inactiveCustomers table th:first-child {
     padding: 10px 10px 10px 10px;
 }
 
-.addCustomer {
+.addCustomer, .addInactiveCustomer {
     font-style: italic;
 }
-.addCustomer:hover {
+.addCustomer:hover,  #activeCustomers .addCustomer:hover {
     cursor: pointer;
     background-color: #D6FFB7;
+}
+.addInactiveCustomer:hover, #inactiveCustomers .addInactiveCustomer:hover {
+    cursor: pointer;
+    background-color: #FFF689;
 }
 footer {
     background-color: white;
