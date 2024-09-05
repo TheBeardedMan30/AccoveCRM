@@ -143,6 +143,7 @@
             function addInputRow(){
                 var table = document.getElementById("activeCustomersTable");
                 var rowCount = table.rows.length;
+                var customerCount = rowCount - 1;
                 var row = table.insertRow(rowCount - 1);
 
                 var checkBox = row.insertCell(0);
@@ -151,7 +152,10 @@
                 var phone = row.insertCell(3);
                 var company = row.insertCell(4);
 
-                checkBox.innerHTML = '<input type="checkbox">';
+                checkBox.innerHTML = `<input type="checkbox" name="user${customerCount}">`;
+
+                checkBox.querySelector('input[type="checkbox"]').addEventListener('change', handleCheckboxChange);
+
                 user.innerHTML = '<input type="text" class="userInput" placeholder="Name . . .">';
                 email.innerHTML = '<input type="text" class="emailInput" placeholder="Email . . .">';
                 phone.innerHTML = '<input type="text" class="phoneInput" placeholder="Phone . . .">';
@@ -209,6 +213,28 @@
                         phoneInputValue.focus();
                     }
                 }
+            }
+
+            // Function that hangles change of state for all checkboxes
+            function handleCheckboxChange(event) {
+                if (event.target.checked) {
+                    console.log(`Checkbox ${event.target.name} is checked`);
+                } else {
+                    console.log(`Checkbox ${event.target.name} is unchecked`);
+                }
+            }
+
+            // Function that attaches checkbox event listeners to all existing checkboxes
+            function attachEventListenersToExistingCheckboxes() {
+                const activeCheckboxes = document.querySelectorAll('#activeCustomersTable input[type="checkbox"]');
+                activeCheckboxes.forEach(function(checkbox) {
+                    checkbox.addEventListener('change', handleCheckboxChange);
+                });
+            }
+
+            // Attaches event listeners to checkboxes when the page loads
+            window.onload = function() {
+                attachEventListenersToExistingCheckboxes();
             }
 
             function addInactiveInputRow() {
@@ -272,6 +298,7 @@
                     }
                 }
             }
+
         </script>
             <!--JavaScript End-->
     </body>
