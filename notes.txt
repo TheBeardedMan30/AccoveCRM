@@ -1,40 +1,36 @@
-function validateLetters(inputField) {
-  const regex = /^[a-zA-Z](?: [a-zA-Z]){0,2}$/;
-  const inputValue = inputField.value;
+<!DOCTYPE html>
+<html>
+<body>
 
-  if (!regex.test(inputValue)) {
-    // Input contains non-letter characters
-    alert("Please enter only letters.");
-    inputField.focus();
-    return false;
-  }
+<h1>JavaScript Dates</h1>
+<h2>The toDateString() Method</h2>
+<p>Convert a date to a date string:</p>
 
-   Input contains only letters
-  return true;
-}
+<p id="demo"></p>
 
-function validateInput() {
-    const inputField = document.getElementById("myInputField");
-    if (validateLetters(inputField)) {
-      // Input is valid
-      alert("Input contains only letters.");
-    }
-}
+<script>
+const d = new Date();
+document.getElementById("demo").innerHTML = d.toDateString();
+</script>
+
+</body>
+</html>
 
 
+<!DOCTYPE html>
+<html>
+<body>
 
-function validateUserInput() {
-    // Access the input element directly
-    const userInput = document.getElementsByClassName("userInput")[0];
+<h1>JavaScript Dates</h1>
+<h2>Using new Date()</h2>
 
-    // Check if the input value matches the regex
-    const regex = /^[a-zA-Z]+(?: [a-zA-Z]+)?$/;
-    if (regex.test(userInput.value)) {
-        console.log("Test passed");
-    } else {
-        console.log("Test failed");
-        alert("Please enter only letters when entering a name.");
-        // Focus on the input element
-        userInput.focus();
-    }
-}
+<p>A date object can be created with a specified date and time:</p>
+<p id="demo"></p>
+
+<script>
+const d = new Date("October 13, 2014 11:13:00");
+document.getElementById("demo").innerHTML = d;
+</script>
+
+</body>
+</html>
