@@ -92,23 +92,20 @@ header input {
 .mainContent {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
 }
 .mainContent h2 {
     vertical-align: middle;
     line-height: 70px;
     height: 70px;
-    width: 500px;
+    width: 100%;
     font-size: 2.25em;
-    margin-left: 60px;
-    padding-left: 50px;
-    margin-top: 30px;
+    margin-top: 0px;
     color: white;
     background-color: #58355E;
-    border-bottom-right-radius: 25px;
-    border-top-right-radius: 25px;
-}
-#activeCustomers, #inactiveCustomers {
-    margin-left: 60px;
+    text-align: center;
 }
 #activeCustomers h3 {
     box-sizing: border-box;
