@@ -110,6 +110,9 @@ header input {
     background-color: grey;
     text-align: center;
 }
+#dashboardGrid {
+    border: 1px solid black;
+}
 #activeCustomers h3 {
     box-sizing: border-box;
     background-color: grey;
