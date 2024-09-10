@@ -13,6 +13,7 @@
             <img class="headerLogo" src="accoveLogo.png" alt="Accove logo">
             <img class="searchIcon" src="search.png" alt="Search icon">
             <input type="text" placeholder="  Search">
+            <p class="dateTime"></p>
             <img class="supportIcon" src="support.png" alt="Support icon">
             <img class="notificationsIcon" src="notifications.png" alt="">
             <img class="appsIcon" src="apps.png" alt="">
@@ -140,6 +141,15 @@
         </footer>
         <!--JavaScript Start-->
         <script>
+            const dateTimeElement = document.querySelector(".dateTime");
+
+            function updateDateTime() {
+                const now = new Date();
+                dateTimeElement.textContent = now.toLocaleString();
+            }
+
+            setInterval(updateDateTime, 1000);
+
             function addInputRow(){
                 var table = document.getElementById("activeCustomersTable");
                 var rowCount = table.rows.length;
