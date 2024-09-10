@@ -63,8 +63,8 @@ header input {
     height: 87%;
 }
 .navigation {
-    background-color: lightgray;
-    color: black;
+    background-color: #EC0B43;
+    color: white;
     width: 270px;
     height: 100%;
 }
@@ -76,13 +76,13 @@ header input {
     padding-bottom: 10px;
 }
 .navigation a {
-    color: black;
+    color: white;
 }
 .navigation a:link {
     text-decoration: none;
 }
 .navigation a:visited {
-    color: black;
+    color: white;
 }
 .navigation a:hover {
     cursor: pointer;
@@ -107,12 +107,12 @@ header input {
     font-size: 2.25em;
     margin-top: 0px;
     color: white;
-    background-color: grey;
+    background-color: #58355E;
     text-align: center;
 }
 #activeCustomers h3 {
     box-sizing: border-box;
-    background-color: grey;
+    background-color: #D6FFB7;
     width: 100%;
     padding-left: 50px;
     margin-bottom: 0px;
@@ -122,7 +122,7 @@ header input {
 }
 #inactiveCustomers h3 {
     box-sizing: border-box;
-    background-color: grey;
+    background-color: #FFF689;
     width: 100%;
     padding-left: 50px;
     margin-top: 50px;
@@ -132,14 +132,14 @@ header input {
     height: 40px;
 }
 #activeCustomers table, #activeCustomers th, #activeCustomers td {
-    border: 1px solid grey;
+    border: 1px solid rgb(210, 210, 210);
     border-collapse: collapse;
-    background-color: lightgray;
+    background-color: rgba(214, 255, 183, 0.15);
 }
 #inactiveCustomers table, #inactiveCustomers th, #inactiveCustomers td {
-    border: 1px solid grey;
+    border: 1px solid rgb(210, 210, 210);
     border-collapse: collapse;
-    background-color: lightgray;
+    background-color: rgba(255, 246, 137, 0.15);
 }
 #activeCustomers td, #inactiveCustomers td {
     padding-left: 10px;
@@ -180,11 +180,11 @@ header input {
 }
 .addCustomer:hover,  #activeCustomers .addCustomer:hover {
     cursor: pointer;
-    background-color: grey;
+    background-color: #D6FFB7;
 }
 .addInactiveCustomer:hover, #inactiveCustomers .addInactiveCustomer:hover {
     cursor: pointer;
-    background-color: gray;
+    background-color: #FFF689;
 }
 footer {
     background-color: white;
