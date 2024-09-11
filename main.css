@@ -1,3 +1,4 @@
+/*-------------Styling for all pages START------------*/
 html {
     height: 100%;
     padding: 0;
@@ -110,9 +111,88 @@ header input {
     background-color: grey;
     text-align: center;
 }
+footer {
+    background-color: white;
+    height: 5%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+footer p {
+    margin-right: 30px;
+    margin-left: 30px;
+}
+footer a {
+    text-decoration: none;
+    color: black;
+}
+/*--------------Styling for all pages END---------------------*/
+
+/*---------------------Dashboard START------------------------*/
 #dashboardGrid {
     border: 1px solid black;
+    display: grid;
+    grid-template-columns: ;
+    grid-template-rows: ;
 }
+#invoicesContainer {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid black;
+    grid-column-start: 1;
+    grid-column-end: 5;
+    grid-row-start: 1;
+    grid-row-end: 14;
+}
+#invoicesContainer h3 {
+    font-size: 1.5em;
+}
+#invoicesFilters {
+    border: 1px solid black;
+}
+#invoicesFilters ul {
+    display: flex;
+    flex-direction: row;
+    margin-left: -30px;
+}
+#invoicesFilters li {
+    background-color: darkgray;
+    border-radius: 10px;
+    list-style-type: none;
+    margin: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+#invoicesFilters table, #invoicesFilters th, #invoicesFilters td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+#invoicesFilters #customerColumn {
+    width: 200px;
+}
+#invoicesFilters #companyColumn {
+    width: 150px;
+}
+#invoicesFilters #valueColumn {
+    width: 100px;
+}
+#invoicesFilters #statusColumn {
+    width: 100px;
+}
+#invoicesFilters th, #invoicesFilters td {
+    padding: 10px;
+}
+#invoicesFilters table {
+    margin: 10px;
+}
+/*---------------------Dashboard END--------------------------*/
+
+/*-----------------Customer Management START------------------*/
 #activeCustomers h3 {
     box-sizing: border-box;
     background-color: grey;
@@ -177,7 +257,6 @@ header input {
 #activeCustomers table td:first-child, #activeCustomers table th:first-child, #inactiveCustomers table td:first-child, #inactiveCustomers table th:first-child {
     padding: 10px 10px 10px 10px;
 }
-
 .addCustomer, .addInactiveCustomer {
     font-style: italic;
 }
@@ -189,19 +268,4 @@ header input {
     cursor: pointer;
     background-color: gray;
 }
-footer {
-    background-color: white;
-    height: 5%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-}
-footer p {
-    margin-right: 30px;
-    margin-left: 30px;
-}
-footer a {
-    text-decoration: none;
-    color: black;
-}
+/*--------------------Customer Management END-------------------*/
