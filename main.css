@@ -131,11 +131,11 @@ footer a {
 
 /*---------------------Dashboard START------------------------*/
 #dashboardGrid {
-    border: 1px solid black;
     display: grid;
     grid-template-columns: auto auto auto auto auto auto auto;
     grid-template-rows: auto auto auto auto auto auto auto auto auto auto auto auto auto auto;
     margin: 10px;
+    margin-top: 30px;
 }
 #invoicesContainer {
     background-color: white;
@@ -190,7 +190,60 @@ footer a {
     margin: 10px;
 }
 #customerTrackingContainer {
+    display: flex;
+    flex-direction: column;
     border: 1px solid black;
+    margin: 10px;
+    background-color: white;
+    grid-column-start: 5;
+    grid-column-end: 8;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    padding: 10px;
+}
+#customerTrackingContainer h3 {
+    margin-left: 20px;
+    font-size: 1.5em;
+}
+#customerTrackingGraph {
+    display: flex;
+    flex-direction: row;
+}
+#customerTrackingGraph img {
+    width: 300px;
+}
+#openLeadsContainer {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid black;
+    grid-column-start: 5;
+    grid-column-end: 8;
+    grid-row-start: 3;
+    grid-row-end: 15;
+    margin: 10px;
+}
+#openLeadsContainer h3 {
+    font-size: 1.5em;
+}
+#openLeadsContainer table, #openLeadsContainer th, #openLeadsContainer td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+#openLeadsContainer #leadsCustomer {
+    width: 200px;
+}
+#openLeadsContainer #leadsAssigned {
+    width: 200px;
+}
+#openLeadsContainer #leadsContact {
+    width: 150px;
+}
+#openLeadsContainer th, #openLeadsContainer td {
+    padding: 10px;
+}
+#openLeadsContainer table {
     margin: 10px;
 }
 /*---------------------Dashboard END--------------------------*/
