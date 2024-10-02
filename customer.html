@@ -1,315 +1,76 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>Customer Management - Accove CRM</title>
-        <meta name="description" content="">
-        <meta name="keywords" content="">
-        <meta name="author" content="Chris Allen">
-        <link rel="stylesheet" href="main.css">
-    </head>
-    <body>
-        <header>
-            <img class="headerLogo" src="accoveLogo.png" alt="Accove logo">
-            <img class="searchIcon" src="search.png" alt="Search icon">
-            <input type="text" placeholder="  Search">
-            <p class="dateTime"></p>
-            <img class="supportIcon" src="support.png" alt="Support icon">
-            <img class="notificationsIcon" src="notifications.png" alt="">
-            <img class="appsIcon" src="apps.png" alt="">
-            <img class="profileIcon" src="profile.png" alt="Profile icon">
-        </header>
-        <div class="pageLayout">
-            <!--navigation Start-->
-            <div class="navigation">
-                <ul>
-                    <li>
-                        <p><a href="https://accove.net">Home</a></p>
-                    </li>
-                    <li>
-                        <p><a href="index.html">Dashboard</a></p>
-                    </li>
-                    <li>
-                        <p><a>Lead Management</a></p>
-                    </li>
-                    <li>
-                        <p><a href="customer.html">Customer Management</a></p>
-                    </li>
-                    <li>
-                        <p><a>Workflow Automation</a></p>
-                    </li>
-                    <li>
-                        <p><a>Automatic Quote System</a></p>
-                    </li>
-                    <li>
-                        <p><a href="staff.html">Staff Tracking</a></p>
-                    </li>
-                    <li>
-                        <p><a href="projects.html">Project Tracking</a></p>
-                    </li>
-                    <li>
-                        <p><a>Interaction Tracking</a></p>
-                    </li>
-                </ul>
-            </div>
-                <!--navigation End-->
-            <!--mainContent Start-->
-            <section class="mainContent">
-                <h2>Customer Management</h2>
-                <!--activeCustomers Start-->
-                <section id="activeCustomers">
-                    <h3>Active Customers</h3>
-                    <table id="activeCustomersTable">
-                        <tr>
-                            <th class="checkBox"></th>
-                            <th class="user">User</th>
-                            <th class="email">Email</th>
-                            <th class="phone">Phone</th>
-                            <th class="company">Company</th>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" name="user1"></td>
-                            <td>Sam Smith</td>
-                            <td>sam.smith@emailme.com.au</td>
-                            <td>0412 345 678</td>
-                            <td>Accove</td>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" name="user2"></td>
-                            <td>Christian Gray</td>
-                            <td>christian.gray@emailme.com.au</td>
-                            <td>0424 456 789</td>
-                            <td>Accove</td>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" name="user3"></td>
-                            <td>Amy Shark</td>
-                            <td>amysharkdoodoo@geemail.com</td>
-                            <td>0404 987 321</td>
-                            <td>Sandoz</td>
-                        </tr>
-                        <tr id="addCustomerRow" onclick="addInputRow()">
-                            <td colspan="5" class="addCustomer">+ Add customer</td>
-                        </tr>
-                    </table>
-                </section>
-                    <!--activeCustomers End-->
-                <!--inactive Customers Start-->
-                <section id="inactiveCustomers">
-                    <h3>Inactive Customers</h3>
-                    <table id="inactiveCustomersTable">
-                        <tr>
-                            <th class="inactiveCheckBox"></th>
-                            <th class="inactiveUser">User</th>
-                            <th class="inactiveEmail">Email</th>
-                            <th class="inactivePhone">Phone</th>
-                            <th class="inactiveCompany">Company</th>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" name="inactiveUser1"></td>
-                            <td>Michael Jackson</td>
-                            <td>michael.jackson@emailme.com</td>
-                            <td>0429 842 093</td>
-                            <td>Apple</td>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" name="inactiveUser2"></td>
-                            <td>Koby Bryant</td>
-                            <td>blackmamba@emailme.com</td>
-                            <td>0498 882 641</td>
-                            <td>LA Lakers</td>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" name="inactiveUser3"></td>
-                            <td>James Potter</td>
-                            <td>j.potter@hogwarts.co.uk</td>
-                            <td>0426 773 925</td>
-                            <td>Hogwarts</td>
-                        </tr>
-                        <tr id="addInactiveCustomerRow" onclick="addInactiveInputRow()">
-                            <td colspan="5" class="addInactiveCustomer">+ Add customer</td>
-                        </tr>
-                    </table>
-                </section>
-                    <!--inactive Customers End-->
-            </section>
-                <!--mainContent End-->
-        </div>
-        <footer>
-            <p>&copy; Copyright Accove 2024</p>
-            <p>Uicons by <a href="https://www.flaticon.com/uicons">Flaticon</a></p>
-        </footer>
-        <!--JavaScript Start-->
-        <script>
-            const dateTimeElement = document.querySelector(".dateTime");
-
-            function updateDateTime() {
-                const now = new Date();
-                dateTimeElement.textContent = now.toLocaleString();
-            }
-
-            setInterval(updateDateTime, 1000);
-
-            function addInputRow(){
-                var table = document.getElementById("activeCustomersTable");
-                var rowCount = table.rows.length;
-                var customerCount = rowCount - 1;
-                var row = table.insertRow(rowCount - 1);
-
-                var checkBox = row.insertCell(0);
-                var user = row.insertCell(1);
-                var email = row.insertCell(2);
-                var phone = row.insertCell(3);
-                var company = row.insertCell(4);
-
-                checkBox.innerHTML = `<input type="checkbox" name="user${customerCount}">`;
-
-                checkBox.querySelector('input[type="checkbox"]').addEventListener('change', handleCheckboxChange);
-
-                user.innerHTML = '<input type="text" class="userInput" placeholder="Name . . .">';
-                email.innerHTML = '<input type="text" class="emailInput" placeholder="Email . . .">';
-                phone.innerHTML = '<input type="text" class="phoneInput" placeholder="Phone . . .">';
-                company.innerHTML = '<input type="text" class="companyInput" placeholder="Company . . .">';
-
-                // Selects all elements in row that match 'text' type then iterates over each
-                row.querySelectorAll('input[type="text"]').forEach(function(input) {
-                    input.addEventListener('blur', function() {
-                        // Check if all input fields have been filled with something
-                        var allInputFilled = true;
-                        row.querySelectorAll('input[type="text"]').forEach(function(input) {
-                            if (input.value.trim() === '') {
-                                allInputFilled = false;
-                            }
-                        });
-
-                        // If all input fields have been filled with something, convert the content into cells
-                        if (allInputFilled) {
-                            // Calls the validateUserInput function
-                            validateUserInput();
-                            validatePhoneInput();
-                            row.querySelectorAll('input[type="text"]').forEach(function(input) {
-                                var cell = input.parentElement;
-                                cell.innerHTML = input.value;
-                            });
-                        }
-                    });
-                });
-
-                function validateUserInput() {
-                    // Creates variable to store userInput input field
-                    const userInput = document.getElementsByClassName("userInput")[0];
-                    // Creates variable to store value of userInput
-                    userInputValue = userInput.value;
-
-                    // Creates the expression being used to compare the input against
-                    const regex = /^[a-zA-Z]+(?: [a-zA-Z]+)?$/;
-
-                    // Performs test of userInputValue against regex
-                    if (!regex.test(userInputValue)) {
-                        // Displays alert window
-                        alert("Please enter only letters when entering a name.");
-                        userInputValue.focus();
-                    }
-                }
-
-                function validatePhoneInput() {
-                    const phoneInput = document.getElementsByClassName("phoneInput")[0];
-                    phoneInputValue = phoneInput.value;
-
-                    const regex = /^[0-9]+$/;
-
-                    if (!regex.test(phoneInputValue)) {
-                        alert("Please enter only numbers when entering a phone number.");
-                        phoneInputValue.focus();
-                    }
-                }
-            }
-
-            // Function that hangles change of state for all checkboxes
-            function handleCheckboxChange(event) {
-                if (event.target.checked) {
-                    console.log(`Checkbox ${event.target.name} is checked`);
-                } else {
-                    console.log(`Checkbox ${event.target.name} is unchecked`);
-                }
-            }
-
-            // Function that attaches checkbox event listeners to all existing checkboxes
-            function attachEventListenersToExistingCheckboxes() {
-                const activeCheckboxes = document.querySelectorAll('#activeCustomersTable input[type="checkbox"]');
-                activeCheckboxes.forEach(function(checkbox) {
-                    checkbox.addEventListener('change', handleCheckboxChange);
-                });
-            }
-
-            // Attaches event listeners to checkboxes when the page loads
-            window.onload = function() {
-                attachEventListenersToExistingCheckboxes();
-            }
-
-            function addInactiveInputRow() {
-                var table = document.getElementById("inactiveCustomersTable");
-                var rowCount = table.rows.length;
-                var row = table.insertRow(rowCount - 1);
-
-                var checkBox = row.insertCell(0);
-                var user = row.insertCell(1);
-                var email = row.insertCell(2);
-                var phone = row.insertCell(3);
-                var company = row.insertCell(4);
-
-                checkBox.innerHTML = '<input type="checkbox">';
-                user.innerHTML = '<input type="text" class="inactiveUserInput" placeholder="Name . . .">';
-                email.innerHTML = '<input type="text" class="inactiveEmailInput" placeholder="Email . . .">';
-                phone.innerHTML = '<input type="text" class="inactivePhoneInput" placeholder="Phone . . .">';
-                company.innerHTML = '<input type="text" class="inactiveCompanyInput">';
-
-                row.querySelectorAll('input[type="text"]').forEach(function(input) {
-                    input.addEventListener('blur', function() {
-                        var allInactiveInputFilled = true;
-                        row.querySelectorAll('input[type="text"]').forEach(function(input) {
-                            if (input.value.trim() === '') {
-                                allInactiveInputFilled = false;
-                            }
-                        });
-
-                        if (allInactiveInputFilled) {
-                            validateInactiveUserInput();
-                            validateInactivePhoneInput();
-                            row.querySelectorAll('input[type="text"]').forEach(function(input) {
-                                var cell = input.parentElement;
-                                cell.innerHTML = input.value;
-                            });
-                        }
-                    });
-                });
-
-                function validateInactiveUserInput() {
-                    const inactiveUserInput = document.getElementsByClassName("inactiveUserInput")[0];
-                    inactiveUserInputValue = inactiveUserInput.value;
-
-                    const regex = /^[a-zA-Z]+(?: [a-zA-Z]+)?$/;
-
-                    if (!regex.test(inactiveUserInputValue)) {
-                        alert("Please enter only letters when entering a name.");
-                        inactiveUserInputValue.focus();
-                    }
-                }
-
-                function validateInactivePhoneInput() {
-                    const inactivePhoneInput = document.getElementsByClassName("inactivePhoneInput")[0];
-                    inactivePhoneInputValue = inactivePhoneInput.value;
-
-                    const regex = /^[0-9]+$/;
-
-                    if (!regex.test(inactivePhoneInputValue)) {
-                        alert("Please enter only numbers when entering a phone number.");
-                        inactivePhoneInputValue.focus();
-                    }
-                }
-            }
-
-        </script>
-            <!--JavaScript End-->
-    </body>
-</html>
+<h2>Customer Management</h2>
+<!--activeCustomers Start-->
+<section id="activeCustomers">
+    <h3>Active Customers</h3>
+    <table id="activeCustomersTable">
+        <tr>
+            <th class="checkBox"></th>
+            <th class="user">User</th>
+            <th class="email">Email</th>
+            <th class="phone">Phone</th>
+            <th class="company">Company</th>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="user1"></td>
+            <td>Sam Smith</td>
+            <td>sam.smith@emailme.com.au</td>
+            <td>0412 345 678</td>
+            <td>Accove</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="user2"></td>
+            <td>Christian Gray</td>
+            <td>christian.gray@emailme.com.au</td>
+            <td>0424 456 789</td>
+            <td>Accove</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="user3"></td>
+            <td>Amy Shark</td>
+            <td>amysharkdoodoo@geemail.com</td>
+            <td>0404 987 321</td>
+            <td>Sandoz</td>
+        </tr>
+        <tr id="addCustomerRow" onclick="addInputRow()">
+            <td colspan="5" class="addCustomer">+ Add customer</td>
+        </tr>
+    </table>
+</section>
+    <!--activeCustomers End-->
+<!--inactive Customers Start-->
+<section id="inactiveCustomers">
+    <h3>Inactive Customers</h3>
+    <table id="inactiveCustomersTable">
+        <tr>
+            <th class="inactiveCheckBox"></th>
+            <th class="inactiveUser">User</th>
+            <th class="inactiveEmail">Email</th>
+            <th class="inactivePhone">Phone</th>
+            <th class="inactiveCompany">Company</th>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="inactiveUser1"></td>
+            <td>Michael Jackson</td>
+            <td>michael.jackson@emailme.com</td>
+            <td>0429 842 093</td>
+            <td>Apple</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="inactiveUser2"></td>
+            <td>Koby Bryant</td>
+            <td>blackmamba@emailme.com</td>
+            <td>0498 882 641</td>
+            <td>LA Lakers</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="inactiveUser3"></td>
+            <td>James Potter</td>
+            <td>j.potter@hogwarts.co.uk</td>
+            <td>0426 773 925</td>
+            <td>Hogwarts</td>
+        </tr>
+        <tr id="addInactiveCustomerRow" onclick="addInactiveInputRow()">
+            <td colspan="5" class="addInactiveCustomer">+ Add customer</td>
+        </tr>
+    </table>
+</section>

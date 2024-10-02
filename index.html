@@ -26,31 +26,31 @@
             <div class="navigation">
                 <ul>
                     <li>
-                        <p><a href="https://accove.net">Home</a></p>
+                        <p>Home</p>
                     </li>
                     <li>
-                        <p><a href="index.html">Dashboard</a></p>
+                        <p><a href="#dashboard" id="dashboard">Dashboard</a></p>
                     </li>
                     <li>
-                        <p><a>Lead Management</a></p>
+                        <p>Lead Management</p>
                     </li>
                     <li>
-                        <p><a href="customer.html">Customer Management</a></p>
+                        <p><a href="#customer" id="customer">Customer Management</a></p>
                     </li>
                     <li>
-                        <p><a>Workflow Automation</a></p>
+                        <p>Workflow Automation</p>
                     </li>
                     <li>
-                        <p><a>Automatic Quote System</a></p>
+                        <p>Automatic Quote System</p>
                     </li>
                     <li>
-                        <p><a href="staff.html">Staff Tracking</a></p>
+                        <p><a href="#staff" id="staff">Staff Tracking</a></p>
                     </li>
                     <li>
-                        <p><a href="projects.html">Project Tracking</a></p>
+                        <p><a href="#projects" id="projects">Project Tracking</a></p>
                     </li>
                     <li>
-                        <p><a>Interaction Tracking</a></p>
+                        <p>Interaction Tracking</p>
                     </li>
                 </ul>
             </div>
@@ -232,7 +232,34 @@
         </footer>
         <script>
             $(function() {
-                alert("Working!");
+                // Function to load content based on current hash in URL
+                function loadPageFromHash() {
+                    if (window.location.hash) {
+                        // Creates new variable with content from address after #
+                        var loadContent = window.location.hash.substr(1);
+                        // Displays content from relevant page in mainContent div
+                        $(".mainContent").load(loadContent + ".html", function() {
+                            attachEventListenersToExistingCheckboxes();
+                            attachRowClickListeners();
+                        });
+                    }
+                }
+                
+                // Selects all <a> elements in navigation
+                $(".navigation a").click(function() {
+                    // Stores ID of clicked element
+                    var pageLoad = $(this).attr("id");
+                    window.location.hash = pageLoad;
+                    loadPageFromHash();
+                });
+
+                // Load content on page load if there's a hash present
+                loadPageFromHash();
+
+                // Listen for hash changes
+                window.onhaschange = function() {
+                    loadPageFromHash();
+                }
             });
             
             const dateTimeElement = document.querySelector(".dateTime");
@@ -243,6 +270,165 @@
             }
 
             setInterval(updateDateTime, 1000);
+
+            function addInputRow(){
+                var table = document.getElementById("activeCustomersTable");
+                var rowCount = table.rows.length;
+                var customerCount = rowCount - 1;
+                var row = table.insertRow(rowCount - 1);
+
+                var checkBox = row.insertCell(0);
+                var user = row.insertCell(1);
+                var email = row.insertCell(2);
+                var phone = row.insertCell(3);
+                var company = row.insertCell(4);
+
+                checkBox.innerHTML = `<input type="checkbox" name="user${customerCount}">`;
+
+                checkBox.querySelector('input[type="checkbox"]').addEventListener('change', handleCheckboxChange);
+
+                user.innerHTML = '<input type="text" class="userInput" placeholder="Name . . .">';
+                email.innerHTML = '<input type="text" class="emailInput" placeholder="Email . . .">';
+                phone.innerHTML = '<input type="text" class="phoneInput" placeholder="Phone . . .">';
+                company.innerHTML = '<input type="text" class="companyInput" placeholder="Company . . .">';
+
+                // Selects all elements in row that match 'text' type then iterates over each
+                row.querySelectorAll('input[type="text"]').forEach(function(input) {
+                    input.addEventListener('blur', function() {
+                        // Check if all input fields have been filled with something
+                        var allInputFilled = true;
+                        row.querySelectorAll('input[type="text"]').forEach(function(input) {
+                            if (input.value.trim() === '') {
+                                allInputFilled = false;
+                            }
+                        });
+
+                        // If all input fields have been filled with something, convert the content into cells
+                        if (allInputFilled) {
+                            // Calls the validateUserInput function
+                            validateUserInput();
+                            validatePhoneInput();
+                            row.querySelectorAll('input[type="text"]').forEach(function(input) {
+                                var cell = input.parentElement;
+                                cell.innerHTML = input.value;
+                            });
+                        }
+                    });
+                });
+
+                function validateUserInput() {
+                    // Creates variable to store userInput input field
+                    const userInput = document.getElementsByClassName("userInput")[0];
+                    // Creates variable to store value of userInput
+                    userInputValue = userInput.value;
+
+                    // Creates the expression being used to compare the input against
+                    const regex = /^[a-zA-Z]+(?: [a-zA-Z]+)?$/;
+
+                    // Performs test of userInputValue against regex
+                    if (!regex.test(userInputValue)) {
+                        // Displays alert window
+                        alert("Please enter only letters when entering a name.");
+                        userInputValue.focus();
+                    }
+                }
+
+                function validatePhoneInput() {
+                    const phoneInput = document.getElementsByClassName("phoneInput")[0];
+                    phoneInputValue = phoneInput.value;
+
+                    const regex = /^[0-9]+$/;
+
+                    if (!regex.test(phoneInputValue)) {
+                        alert("Please enter only numbers when entering a phone number.");
+                        phoneInputValue.focus();
+                    }
+                }
+            }
+
+            // Function that hangles change of state for all checkboxes
+            function handleCheckboxChange(event) {
+                if (event.target.checked) {
+                    console.log(`Checkbox ${event.target.name} is checked`);
+                } else {
+                    console.log(`Checkbox ${event.target.name} is unchecked`);
+                }
+            }
+
+            // Function that attaches checkbox event listeners to all existing checkboxes
+            function attachEventListenersToExistingCheckboxes() {
+                const activeCheckboxes = document.querySelectorAll('#activeCustomersTable input[type="checkbox"]');
+                activeCheckboxes.forEach(function(checkbox) {
+                    checkbox.addEventListener('change', handleCheckboxChange);
+                });
+            }
+
+            // Attaches event listeners to checkboxes when the page loads
+            window.onload = function() {
+                attachEventListenersToExistingCheckboxes();
+            }
+
+            function addInactiveInputRow() {
+                var table = document.getElementById("inactiveCustomersTable");
+                var rowCount = table.rows.length;
+                var row = table.insertRow(rowCount - 1);
+
+                var checkBox = row.insertCell(0);
+                var user = row.insertCell(1);
+                var email = row.insertCell(2);
+                var phone = row.insertCell(3);
+                var company = row.insertCell(4);
+
+                checkBox.innerHTML = '<input type="checkbox">';
+                user.innerHTML = '<input type="text" class="inactiveUserInput" placeholder="Name . . .">';
+                email.innerHTML = '<input type="text" class="inactiveEmailInput" placeholder="Email . . .">';
+                phone.innerHTML = '<input type="text" class="inactivePhoneInput" placeholder="Phone . . .">';
+                company.innerHTML = '<input type="text" class="inactiveCompanyInput">';
+
+                row.querySelectorAll('input[type="text"]').forEach(function(input) {
+                    input.addEventListener('blur', function() {
+                        var allInactiveInputFilled = true;
+                        row.querySelectorAll('input[type="text"]').forEach(function(input) {
+                            if (input.value.trim() === '') {
+                                allInactiveInputFilled = false;
+                            }
+                        });
+
+                        if (allInactiveInputFilled) {
+                            validateInactiveUserInput();
+                            validateInactivePhoneInput();
+                            row.querySelectorAll('input[type="text"]').forEach(function(input) {
+                                var cell = input.parentElement;
+                                cell.innerHTML = input.value;
+                            });
+                        }
+                    });
+                });
+
+                function validateInactiveUserInput() {
+                    const inactiveUserInput = document.getElementsByClassName("inactiveUserInput")[0];
+                    inactiveUserInputValue = inactiveUserInput.value;
+
+                    const regex = /^[a-zA-Z]+(?: [a-zA-Z]+)?$/;
+
+                    if (!regex.test(inactiveUserInputValue)) {
+                        alert("Please enter only letters when entering a name.");
+                        inactiveUserInputValue.focus();
+                    }
+                }
+
+                function validateInactivePhoneInput() {
+                    const inactivePhoneInput = document.getElementsByClassName("inactivePhoneInput")[0];
+                    inactivePhoneInputValue = inactivePhoneInput.value;
+
+                    const regex = /^[0-9]+$/;
+
+                    if (!regex.test(inactivePhoneInputValue)) {
+                        alert("Please enter only numbers when entering a phone number.");
+                        inactivePhoneInputValue.focus();
+                    }
+                }
+            }
         </script>
     </body>
 </html>
