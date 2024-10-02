@@ -5,6 +5,8 @@
         <title>Dashboard - Accove CRM</title>
         <!--JQuery link-->
         <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <!--JQuery Dialog link-->
+        <script src="https://code.jquery.com/ui/1.14.0/jquery-ui.js"></script>
         <meta name="description" content="">
         <meta name="keywords" content="">
         <meta name="author" content="Chris Allen">
@@ -230,8 +232,31 @@
             <p>&copy; Copyright Accove 2024</p>
             <p>Uicons by <a href="https://www.flaticon.com/uicons">Flaticon</a></p>
         </footer>
+
+        <!--Dialog box for login-->
+        <div id="loginDialog" title="Login">
+            <p>Test message for loginDialog</p>
+        </div>
+            <!--Dialog box end-->
+
         <script>
             $(function() {
+                // Initialise the jQuery login dialog
+                $("#loginDialog").dialog({
+                    buttons: {
+                        OK: function() {
+                            $(this).dialog("close");
+                        }
+                    },
+                    close: function() {
+                        $(".navigation, .mainContent").removeClass("blur");
+                        loadPageFromHash();
+                    },
+                    open: function() {
+                        $(".navigation, .mainContent").addClass("blur");
+                    }
+                })
+
                 // Function to load content based on current hash in URL
                 function loadPageFromHash() {
                     if (window.location.hash) {
@@ -257,7 +282,7 @@
                 loadPageFromHash();
 
                 // Listen for hash changes
-                window.onhaschange = function() {
+                window.onhashchange = function() {
                     loadPageFromHash();
                 }
             });
