@@ -13,6 +13,20 @@
         <link rel="stylesheet" href="main.css">
     </head>
     <body>
+        <!--Dialog box start-->
+        <div id="loginDialog" title="Login">
+            <img id="dialogLogo" src="accoveLogoV2.png" alt="Accove Logo">
+            <p>Log in to continue</p>
+            <!--Login form table start-->
+            <table id="loginForm">
+                <tr>
+                    
+                </tr>
+            </table>
+                <!--Login form table end-->
+        </div>
+            <!--Dialog box end-->
+        
         <header>
             <img class="headerLogo" src="accoveLogo.png" alt="Accove logo">
             <img class="searchIcon" src="search.png" alt="Search icon">
@@ -232,19 +246,14 @@
             <p>&copy; Copyright Accove 2024</p>
             <p>Uicons by <a href="https://www.flaticon.com/uicons">Flaticon</a></p>
         </footer>
-
-        <!--Dialog box for login-->
-        <div id="loginDialog" title="Login">
-            <p>Test message for loginDialog</p>
-        </div>
-            <!--Dialog box end-->
-
         <script>
             $(function() {
                 // Initialise the jQuery login dialog
                 $("#loginDialog").dialog({
+                    width: 900,
+                    height: 600,
                     buttons: {
-                        OK: function() {
+                        Submit: function() {
                             $(this).dialog("close");
                         }
                     },
