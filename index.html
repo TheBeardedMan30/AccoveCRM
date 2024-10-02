@@ -3,6 +3,8 @@
     <head>
         <meta charset="utf-8">
         <title>Dashboard - Accove CRM</title>
+        <!--JQuery link-->
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
         <meta name="description" content="">
         <meta name="keywords" content="">
         <meta name="author" content="Chris Allen">
@@ -229,6 +231,10 @@
             <p>Uicons by <a href="https://www.flaticon.com/uicons">Flaticon</a></p>
         </footer>
         <script>
+            $(function() {
+                alert("Working!");
+            });
+            
             const dateTimeElement = document.querySelector(".dateTime");
 
             function updateDateTime() {
