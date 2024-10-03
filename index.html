@@ -21,11 +21,11 @@
             <table id="loginForm">
                 <tr>
                     <td id="username">Username: </td>
-                    <td id="usernameInput"><input type="text" placeholder="   Enter username"></td>
+                    <td id="usernameInput"><input type="text" placeholder="Enter username"></td>
                 </tr>
                 <tr>
                     <td id="password">Password: </td>
-                    <td id="passwordInput"><input type="text" placeholder="   Enter password"></td>
+                    <td id="passwordInput"><input type="text" placeholder="Enter password"></td>
                 </tr>
             </table>
                 <!--Login form table end-->
@@ -253,13 +253,28 @@
         </footer>
         <script>
             $(function() {
+                // Predefined test username
+                const testUsername = "admin";
+                // Predefined test password
+                const testPassword = "password123";
+
                 // Initialise the jQuery login dialog
                 $("#loginDialog").dialog({
                     width: 900,
                     height: 550,
                     buttons: {
                         Submit: function() {
-                            $(this).dialog("close");
+                            // Get values from input fields and assign to variables
+                            const usernameEntered = $("#usernameInput input").val().trim();
+                            const passwordEntered = $("#passwordInput input").val().trim();
+
+                            // Check input values against predefined
+                            if (usernameEntered === testUsername && passwordEntered === testPassword) {
+                                $(this).dialog("close");
+                            } else {
+                                // Display error message if values don't match
+                                alert("Invalid username or password. Please try again.");
+                            }
                         }
                     },
                     close: function() {

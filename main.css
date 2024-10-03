@@ -145,6 +145,7 @@ footer a {
 }
 #loginForm input {
     font-size: 1em;
+    padding-left: 10px;
 }
 #loginForm th, #loginForm td {
     font-size: 1.25em;
