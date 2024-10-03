@@ -3,14 +3,13 @@
     <head>
         <meta charset="utf-8">
         <title>Dashboard - Accove CRM</title>
-        <!--JQuery link-->
         <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-        <!--JQuery Dialog link-->
         <script src="https://code.jquery.com/ui/1.14.0/jquery-ui.js"></script>
         <meta name="description" content="">
         <meta name="keywords" content="">
         <meta name="author" content="Chris Allen">
         <link rel="stylesheet" href="main.css">
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.0/themes/base/jquery-ui.css">
     </head>
     <body>
         <!--Dialog box start-->
@@ -253,6 +252,7 @@
         </footer>
         <script>
             $(function() {
+                //------------------Dialog Start-------------------
                 // Predefined test username
                 const testUsername = "admin";
                 // Predefined test password
@@ -288,17 +288,28 @@
                         $(this).closest(".ui-dialog").find(".ui-dialog-buttonpane button:contains('Submit')").addClass("submitButton");
                     }
                 });
+                    //--------------------Dialog End-------------------
 
+                //------------------Dashboard Start--------------------
                 // Function to load content based on current hash in URL
                 function loadPageFromHash() {
                     if (window.location.hash) {
                         // Creates new variable with content from address after #
                         var loadContent = window.location.hash.substr(1);
-                        // Displays content from relevant page in mainContent div
-                        $(".mainContent").load(loadContent + ".html", function() {
-                            attachEventListenersToExistingCheckboxes();
-                            attachRowClickListeners();
-                        });
+                        
+                        if (!loadContent.startsWith("tabs-")) {
+                            // Displays content from relevant page in mainContent div
+                            $(".mainContent").load(loadContent + ".html", function() {
+                                attachEventListenersToExistingCheckboxes();
+                                attachRowClickListeners();
+
+                                // Initialise 'tabs' content for staff tracking
+                                if (loadContent === "staff") {
+                                    $("#tabs").tabs();
+                                }
+                            });
+                        }
+                        
                     }
                 }
                 
@@ -317,8 +328,10 @@
                 window.onhashchange = function() {
                     loadPageFromHash();
                 }
+                    //-------------Dashboard End----------------------
             });
             
+            //----------------Dashboard Start-------------------------
             const dateTimeElement = document.querySelector(".dateTime");
 
             function updateDateTime() {
@@ -327,7 +340,9 @@
             };
 
             setInterval(updateDateTime, 1000);
-
+                //--------------Dashboard End-------------------------
+            
+            //-------------------Customer Management Start------------
             function addInputRow(){
                 var table = document.getElementById("activeCustomersTable");
                 var rowCount = table.rows.length;
@@ -485,6 +500,7 @@
                         inactivePhoneInputValue.focus();
                     }
                 };
+                //-------------------Customer Management End---------------
             };
         </script>
     </body>
