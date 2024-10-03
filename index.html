@@ -20,7 +20,12 @@
             <!--Login form table start-->
             <table id="loginForm">
                 <tr>
-                    
+                    <td id="username">Username: </td>
+                    <td id="usernameInput"><input type="text" placeholder="   Enter username"></td>
+                </tr>
+                <tr>
+                    <td id="password">Password: </td>
+                    <td id="passwordInput"><input type="text" placeholder="   Enter password"></td>
                 </tr>
             </table>
                 <!--Login form table end-->
@@ -263,8 +268,11 @@
                     },
                     open: function() {
                         $(".navigation, .mainContent").addClass("blur");
+                    },
+                    create: function () {
+                        $(this).closest(".ui-dialog").find(".ui-dialog-buttonpane button:contains('Submit')").addClass("submitButton");
                     }
-                })
+                });
 
                 // Function to load content based on current hash in URL
                 function loadPageFromHash() {
@@ -301,7 +309,7 @@
             function updateDateTime() {
                 const now = new Date();
                 dateTimeElement.textContent = now.toLocaleString();
-            }
+            };
 
             setInterval(updateDateTime, 1000);
 
@@ -365,7 +373,7 @@
                         alert("Please enter only letters when entering a name.");
                         userInputValue.focus();
                     }
-                }
+                };
 
                 function validatePhoneInput() {
                     const phoneInput = document.getElementsByClassName("phoneInput")[0];
@@ -377,8 +385,8 @@
                         alert("Please enter only numbers when entering a phone number.");
                         phoneInputValue.focus();
                     }
-                }
-            }
+                };
+            };
 
             // Function that hangles change of state for all checkboxes
             function handleCheckboxChange(event) {
@@ -387,7 +395,7 @@
                 } else {
                     console.log(`Checkbox ${event.target.name} is unchecked`);
                 }
-            }
+            };
 
             // Function that attaches checkbox event listeners to all existing checkboxes
             function attachEventListenersToExistingCheckboxes() {
@@ -395,12 +403,12 @@
                 activeCheckboxes.forEach(function(checkbox) {
                     checkbox.addEventListener('change', handleCheckboxChange);
                 });
-            }
+            };
 
             // Attaches event listeners to checkboxes when the page loads
             window.onload = function() {
                 attachEventListenersToExistingCheckboxes();
-            }
+            };
 
             function addInactiveInputRow() {
                 var table = document.getElementById("inactiveCustomersTable");
@@ -449,7 +457,7 @@
                         alert("Please enter only letters when entering a name.");
                         inactiveUserInputValue.focus();
                     }
-                }
+                };
 
                 function validateInactivePhoneInput() {
                     const inactivePhoneInput = document.getElementsByClassName("inactivePhoneInput")[0];
@@ -461,8 +469,8 @@
                         alert("Please enter only numbers when entering a phone number.");
                         inactivePhoneInputValue.focus();
                     }
-                }
-            }
+                };
+            };
         </script>
     </body>
 </html>

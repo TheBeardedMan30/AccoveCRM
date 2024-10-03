@@ -130,15 +130,25 @@ footer a {
 /*--------------Styling for all pages END---------------------*/
 
 /*---------------------Dashboard START------------------------*/
-#loginDialog {
-    border: 1px solid black;
-}
 #loginDialog img {
     width: 40%;
     padding-top: 50px;
 }
 #loginDialog p {
     font-size: 1.75em;
+}
+#loginForm {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+}
+#loginForm input {
+    font-size: 1em;
+}
+#loginForm th, #loginForm td {
+    font-size: 1.25em;
+    padding-top: 30px;
+    padding-right: 10px;
 }
 .blur {
     filter: blur(5px);
