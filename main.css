@@ -313,12 +313,12 @@ footer a {
 #activeCustomers table, #activeCustomers th, #activeCustomers td {
     border: 1px solid grey;
     border-collapse: collapse;
-    background-color: lightgray;
+    background-color: white;
 }
 #inactiveCustomers table, #inactiveCustomers th, #inactiveCustomers td {
     border: 1px solid grey;
     border-collapse: collapse;
-    background-color: lightgray;
+    background-color: white;
 }
 #activeCustomers td, #inactiveCustomers td {
     padding-left: 10px;
@@ -358,10 +358,46 @@ footer a {
 }
 .addCustomer:hover,  #activeCustomers .addCustomer:hover {
     cursor: pointer;
-    background-color: grey;
+    background-color: lightgrey;
 }
 .addInactiveCustomer:hover, #inactiveCustomers .addInactiveCustomer:hover {
     cursor: pointer;
-    background-color: gray;
+    background-color: lightgrey;
 }
 /*--------------------Customer Management END-------------------*/
+
+/*---------------------Staff Tracking Start---------------------*/
+#tabs {
+    width: 90%;
+}
+.ui-tabs .ui-tabs-nav li.ui-state-active{
+    background-color: grey;
+    border: none;
+}
+.staffTable {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.staffTable th {
+    padding: 10px 0px 10px 0px;
+}
+.staffTable td {
+    padding: 10px 10px 10px 10px;
+}
+.staffTable, .staffTable th, .staffTable td {
+    border: 1px solid gray;
+    border-collapse: collapse;
+    background-color: white;
+}
+.staffTable td {
+    padding-left: 10px;
+}
+.staffFirst, .staffLast, .staffPhone {
+    width: 200px;
+}
+.staffEmail {
+    width: 300px;
+}
+/*----------------Staff Tracking End-----------------------*/
