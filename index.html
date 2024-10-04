@@ -302,9 +302,13 @@
                             $(".mainContent").load(loadContent + ".html", function() {
                                 attachEventListenersToExistingCheckboxes();
 
-                                // Initialise 'tabs' content for staff tracking
+                                // Initialise 'tabs' styling for staff tracking
                                 if (loadContent === "staff") {
                                     $("#tabs").tabs();
+                                }
+                                // Initialise 'accordion' styling for project tracking
+                                if (loadContent === "projects") {
+                                    $("#accordion").accordion();
                                 }
                             });
                         }

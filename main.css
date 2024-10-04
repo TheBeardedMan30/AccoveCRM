@@ -401,3 +401,13 @@ footer a {
     width: 300px;
 }
 /*----------------Staff Tracking End-----------------------*/
+
+/*---------------Project Tracking Start--------------------*/
+#accordion {
+    width: 90%;
+}
+.ui-accordion .ui-accordion-header.ui-state-active {
+    background-color: grey;
+    border: none;
+}
+/*---------------Project Tracking End----------------------*/
