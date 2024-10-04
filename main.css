@@ -371,7 +371,7 @@ footer a {
     width: 90%;
 }
 .ui-tabs .ui-tabs-nav li.ui-state-active{
-    background-color: grey;
+    background-color: gray;
     border: none;
 }
 .staffTable {
@@ -407,7 +407,7 @@ footer a {
     width: 90%;
 }
 .ui-accordion .ui-accordion-header.ui-state-active {
-    background-color: grey;
+    background-color: gray;
     border: none;
 }
 /*---------------Project Tracking End----------------------*/
