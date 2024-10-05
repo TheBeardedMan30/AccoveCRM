@@ -49,7 +49,7 @@
                         <p>Home</p>
                     </li>
                     <li>
-                        <p><a href="#dashboard" id="dashboard">Dashboard</a></p>
+                        <p><a href="#dashboard" id="dashboard" title="Testing">Dashboard</a></p>
                     </li>
                     <li>
                         <p>Lead Management</p>
@@ -300,6 +300,16 @@
                         if (!loadContent.startsWith("tabs-")) {
                             // Displays content from relevant page in mainContent div
                             $(".mainContent").load(loadContent + ".html", function() {
+                                // Creates tooltip only when mouse hovers over navigation item
+                                $("[title]").on("mouseenter", function(){
+                                    $(this).tooltip({
+                                        show: {effect: "fadeIn", delay: 200},
+                                        hide: {effect: "fadeOut", delay: 200}
+                                    }).tooltip("open");
+                                // Removes tooltip when mouse leaves navigation item
+                                }).on("mouseleave", function(){
+                                    $(this).tooltip("destroy");
+                                })
                                 attachEventListenersToExistingCheckboxes();
 
                                 // Initialise 'tabs' styling for staff tracking

@@ -93,6 +93,10 @@ header input {
     cursor: pointer;
     text-decoration: underline;
 }
+label {
+    display: inline-block;
+    width: 5em;
+}
 .mainContent {
     display: flex;
     flex-direction: column;
