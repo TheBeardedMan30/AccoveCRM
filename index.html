@@ -304,7 +304,17 @@
 
                                 // Initialise 'tabs' styling for staff tracking
                                 if (loadContent === "staff") {
-                                    $("#tabs").tabs();
+                                    $("#accordion").accordion({
+                                        header: "> div > h3"
+                                    })
+                                    .sortable({
+                                        axis: "y",
+                                        handle: "h3",
+                                        stop: function(event,ui) {
+                                            ui.item.children("h3").triggerHandler("focusout");
+                                            $(this).accordion("refresh");
+                                        }
+                                    });
                                 }
                                 // Initialise 'accordion' styling for project tracking
                                 if (loadContent === "projects") {
